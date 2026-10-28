@@ -1,6 +1,6 @@
 # AutoPulse: Build Plan
 
-- [ ] 1. Scaffold the project (stack in `CLAUDE.md`), strict `tsconfig`, lint, `netlify.toml`, `.env.example`; first working commit
+- [x] 1. Scaffold the project (stack in `CLAUDE.md`), strict `tsconfig`, lint, `netlify.toml`, `.env.example`; first working commit
 - [ ] 2. Dexie schema and `types/`
 - [ ] 3. App shell, bottom navigation, theme
 - [ ] 4. Vehicle CRUD and switcher
