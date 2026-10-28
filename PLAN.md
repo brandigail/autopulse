@@ -3,7 +3,7 @@
 - [x] 1. Scaffold the project (stack in `CLAUDE.md`), strict `tsconfig`, lint, `netlify.toml`, `.env.example`; first working commit
 - [x] 2. Dexie schema and `types/`
 - [x] 3. App shell, bottom navigation, theme
-- [ ] 4. Vehicle CRUD and switcher
+- [x] 4. Vehicle CRUD and switcher
 - [ ] 5. Service log CRUD
 - [ ] 6. Fuel log CRUD
 - [ ] 7. Efficiency and cost-per-distance calculations with unit tests
