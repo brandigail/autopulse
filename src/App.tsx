@@ -1,7 +1,21 @@
+import { Route, Routes } from 'react-router-dom'
+import { AppShell } from './components/AppShell'
+import { DashboardPage } from './features/dashboard/DashboardPage'
+import { FuelPage } from './features/fuel/FuelPage'
+import { RemindersPage } from './features/reminders/RemindersPage'
+import { ServicesPage } from './features/services/ServicesPage'
+import { VehiclesPage } from './features/vehicles/VehiclesPage'
+
 export default function App() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-      <h1 className="text-2xl font-semibold">AutoPulse</h1>
-    </main>
+    <Routes>
+      <Route element={<AppShell />}>
+        <Route index element={<DashboardPage />} />
+        <Route path="services" element={<ServicesPage />} />
+        <Route path="fuel" element={<FuelPage />} />
+        <Route path="reminders" element={<RemindersPage />} />
+        <Route path="vehicles" element={<VehiclesPage />} />
+      </Route>
+    </Routes>
   )
 }
