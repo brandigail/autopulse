@@ -1,6 +1,12 @@
+import { useEffect } from 'react'
 import { useRegisterSW } from 'virtual:pwa-register/react'
 
-/** Shown when a new version is waiting, or once the app is ready to work offline. The user decides when to reload. */
+const OFFLINE_NOTICE_MS = 6000
+
+/**
+ * Shown when a new version is waiting (the user decides when to reload) or once the app is ready to work offline.
+ * It sits at the top so it can never cover a save button, and the offline notice goes away by itself.
+ */
 export function UpdatePrompt() {
   const {
     needRefresh: [needRefresh, setNeedRefresh],
@@ -8,12 +14,18 @@ export function UpdatePrompt() {
     updateServiceWorker,
   } = useRegisterSW()
 
+  useEffect(() => {
+    if (!offlineReady) return
+    const timer = window.setTimeout(() => setOfflineReady(false), OFFLINE_NOTICE_MS)
+    return () => window.clearTimeout(timer)
+  }, [offlineReady, setOfflineReady])
+
   if (!needRefresh && !offlineReady) return null
 
   return (
     <div
       role="status"
-      className="fixed inset-x-3 bottom-20 z-20 mx-auto flex max-w-md items-center gap-3 rounded-xl border border-teal-200 bg-white p-3 text-sm shadow-lg dark:border-teal-900 dark:bg-slate-900 md:bottom-4"
+      className="fixed inset-x-3 top-16 z-30 mx-auto flex max-w-md items-center gap-3 rounded-xl border border-teal-200 bg-white p-3 text-sm shadow-lg dark:border-teal-900 dark:bg-slate-900"
     >
       <p className="flex-1">{needRefresh ? 'A new version of AutoPulse is ready.' : 'AutoPulse now works offline.'}</p>
       {needRefresh && (
