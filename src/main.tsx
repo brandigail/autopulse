@@ -3,17 +3,24 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
+import { ensureDemoData } from './db/seedDemo.ts'
 import { ActiveVehicleProvider } from './providers/ActiveVehicleProvider.tsx'
+import { PreferencesProvider } from './providers/PreferencesProvider.tsx'
 import { ThemeProvider } from './providers/ThemeProvider.tsx'
+
+// First launch shows a lived-in demo vehicle; the live queries pick it up as soon as it is written.
+void ensureDemoData()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider>
-      <ActiveVehicleProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </ActiveVehicleProvider>
+      <PreferencesProvider>
+        <ActiveVehicleProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </ActiveVehicleProvider>
+      </PreferencesProvider>
     </ThemeProvider>
   </StrictMode>,
 )

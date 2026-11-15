@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom'
 import { BottomNav } from './BottomNav'
 import { ThemeToggle } from './ThemeToggle'
+import { UpdatePrompt } from './UpdatePrompt'
 import { VehicleSwitcher } from './VehicleSwitcher'
 
 export function AppShell() {
@@ -19,6 +20,7 @@ export function AppShell() {
           <Outlet />
         </main>
       </div>
+      <UpdatePrompt />
     </div>
   )
 }
