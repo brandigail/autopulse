@@ -2,7 +2,7 @@
 
 An offline-first vehicle service tracker. Log services and fuel, see real fuel efficiency and cost per kilometre, and get reminders that fire on distance or time, whichever comes first. It installs as an app and works with no connection.
 
-**Live demo:** TBD (built and tested locally, not yet deployed)
+**Live demo:** https://autopulse-752.netlify.app
 
 ![Dashboard on a phone](docs/screenshots/dashboard-mobile.png)
 
